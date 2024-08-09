@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -6,8 +6,6 @@ const Form = () => {
     company: "",
     email: "",
   });
-
-  // Handle form input changes
 
   const [errors, setErrors] = useState({});
 
@@ -34,14 +32,26 @@ const Form = () => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
-      // No errors, submit the form
-      setErrors({});
-      console.log("Form submitted", formData);
+      let storedData =
+        localStorage.getItem("formData")?.length > 0
+          ? JSON.parse(localStorage.getItem("formData"))
+          : [];
+      const exists = storedData.some((data) => data.email === formData.email);
+
+      if (exists) {
+        alert("Email already exists in local storage!");
+      } else {
+        storedData.push(formData);
+        localStorage.setItem("formData", JSON.stringify(storedData));
+        setErrors({});
+        console.log("Form submitted", formData);
+      }
+      console.log("storage", JSON.parse(localStorage.getItem("formData")));
     } else {
-      // Set errors
       setErrors(validationErrors);
     }
   };
+
   return (
     <div className="form-section">
       <h2>Registration</h2>
@@ -120,4 +130,5 @@ const Form = () => {
     </div>
   );
 };
+
 export default Form;
