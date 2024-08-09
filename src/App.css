@@ -1,10 +1,52 @@
 .App {
-  text-align: center;
+  text-align: left;
+  height: 100%;
+  background-color: #ebf0ff;
+  font-family: sans-serif;
+  padding: 5%; /* Reduced padding for better responsiveness */
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin; /* Adjusted for different screen sizes */
   pointer-events: none;
+}
+
+.transparent-button {
+  background-color: #ebf0ff;
+  border: 0;
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: 19px; /* Use em for better scalability */
+  font-weight: 400;
+  text-align: left;
+  text-decoration-color: #515151;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.transparent-button:hover {
+  text-shadow: 0 0 15px rgba(70, 176, 230, 1), 0 0 25px rgba(70, 176, 230, 0.8),
+    0 0 35px rgba(70, 176, 230, 0.6);
+}
+
+.contactus-button {
+  border-radius: 50px;
+  background-color: #46b0e6;
+  padding: 10px 20px;
+  font-family: sans-serif;
+  font-size: 19px;
+  font-weight: bold;
+  color: #ffffff;
+  border: 0;
+  box-shadow: 0 0 10px rgba(70, 176, 230, 0.8), 0 0 20px rgba(70, 176, 230, 0.6),
+    0 0 30px rgba(70, 176, 230, 0.4);
+  transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.contactus-button:hover {
+  box-shadow: 0 0 15px rgba(70, 176, 230, 1), 0 0 25px rgba(70, 176, 230, 0.8),
+    0 0 35px rgba(70, 176, 230, 0.6);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,14 +55,37 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form-section {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  max-width: 500px;
+}
+.perks-section {
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  padding: 10px 12%;
+
+  flex-direction: column;
+}
+
+.App-header,
+.App-footer {
+  background-color: #ebf0ff;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  font-size: calc(8px + 2vmin);
+  padding: 1px 5%;
   color: white;
 }
 
@@ -35,4 +100,155 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.slider-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  width: 100%;
+}
+
+.slide {
+  flex: 1 0 33.33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-img {
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  border: 0;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  background-color: transparent;
+  color: #46b0e6;
+  font-weight: bold;
+  font-size: 1.5em; /* Adjusted for better readability */
+  transition: 0.6s ease;
+  user-select: none;
+  z-index: 1;
+}
+
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.next {
+  right: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: #dee5fa; /* Lighter background color on hover */
+}
+
+@media (max-width: 768px) {
+  .App-logo {
+    height: 30vmin; /* Adjust for smaller screens */
+  }
+
+  .contactus-button {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+
+  .transparent-button {
+    font-size: 0.9em;
+  }
+
+  .App-header,
+  .App-footer {
+    font-size: calc(6px + 2vmin);
+    padding: 10px 2%;
+  }
+
+  .prev,
+  .next {
+    font-size: 1.2em;
+    padding: 12px;
+  }
+}
+.text-image-container {
+  text-align: center; /* Center align the text and image */
+  margin: 20px; /* Adjust margin as needed */
+  position: relative; /* Needed for positioning the image container */
+}
+
+.text-blue {
+  color: black; /* Sets the color of the text to black */
+  font-size: 24px; /* Adjust font size as needed */
+  margin: 0; /* Removes default margins */
+}
+
+.highlight {
+  color: blue; /* Sets the color of "dolor" to blue */
+  display: inline-block; /* Allows positioning of the image container relative to this text */
+}
+
+.image-container {
+  display: inline-block; /* Makes sure the image container aligns with the highlighted text */
+  text-align: center; /* Center the image inside the container */
+  margin-top: 5px; /* Adds some space above the image */
+}
+
+.under-image {
+  display: block; /* Ensures the image is a block-level element */
+  margin: 0 auto; /* Centers the image horizontally */
+  max-width: 100%; /* Makes the image responsive */
+  height: auto; /* Maintains aspect ratio */
+}
+
+.additional-text {
+  color: black; /* Sets the color of the remaining text */
+  font-size: 24px; /* Adjust font size as needed */
+  margin: 10px 0 0; /* Adds margin above and below */
+}
+
+.input-field {
+  border: 1px solid #ccc; /* Light gray border */
+  padding: 10px; /* Padding inside the input field */
+  font-size: 16px; /* Adjust font size as needed */
+  width: 479px; /* Set width as per your design */
+  border-radius: 5px;
+}
+
+.input-field:focus {
+  outline: none; /* Remove default focus outline */
+  border-color: #46b0e6; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(70, 176, 230, 0.5); /* Optional: Add a slight shadow on focus */
+}
+.submit-button {
+  background-color: #f89d21;
+  color: #ffffff;
+  border: none;
+  border-radius: 40px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 200px;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background-color: #e0861b; /* Slightly darker shade on hover */
 }

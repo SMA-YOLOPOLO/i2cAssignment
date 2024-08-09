@@ -1,0 +1,44 @@
+.vertical-slider-container {
+  height: 45%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.vertical-slider {
+  display: flex;
+  flex-direction: column; /* Stack sections vertically */
+}
+
+.slider-section {
+  display: flex;
+  align-items: center;
+  background-color: #f6fbf8;
+  border-radius: 5px;
+  padding: 10px 5%;
+  margin: 15px 2%;
+  min-height: 100px; /* Ensure a minimum height for each section */
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+}
+
+.slider-image {
+  border-radius: 50%;
+  width: 55px; /* Adjust as needed */
+  height: 55px; /* Ensure height is equal to width */
+}
+
+.text-container {
+  margin-left: 16px;
+  text-align: left;
+}
+
+.slider-heading {
+  font-weight: bold;
+}
+
+.slider-description {
+  margin-top: 5px; /* Adjust spacing as needed */
+}
